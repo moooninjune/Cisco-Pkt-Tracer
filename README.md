@@ -164,6 +164,20 @@ Router# reload
     Router# show ip protocols
     ```
 
+## Lab5: Basic DHCP, FTP and Standard ACL Configuration:
+
+1) DHCP:
+
+
+2) FTP:
+
+
+3) ACL:
+
+
+## Lab6: Basic IPv6 Configuration:
+
+
 ## Tips:
 
 1) Use the `?` in the command prompt to remember any command you might've forgetten.
@@ -171,3 +185,7 @@ Router# reload
 2) Check the connectivity using `ping` on the command prompt of any end-device.
 
 3) Check the up/down indicators (the green triangles) on Cisco Packet Tracer interfaces as they represent the **link status** of the network interface.
+    ```c
+    // or using this command
+    Router# show ip interface brief
+    ```
