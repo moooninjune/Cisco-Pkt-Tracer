@@ -19,20 +19,25 @@
 - Through an end-device using Console Cable connected to the router
 
     ```c
-    // Console port: is the port used to directly access the router and configure (manage) it, so we have to authenticate the access of this port.
+    /* Console port: is the port used to directly access the router
+    and configure (manage) it, so we have to authenticate the
+    access of this port. */
     Router(config)# line console 0
     Router(config-line)# password yourpassword
     Router(config-line)# login
     ```
 - Through an end-device using remote access control
     ```c
-    // Virtual Teletype (VTY) port: is the port used to remotely access the router and configure (manage) it, so we have to authenticate the access of this port.
+    /* Virtual Teletype (VTY) port: is the port used to remotely access
+    the router and configure (manage) it, so we have to authenticate
+    the access of this port. */
     Router(config)# line vty 0 4
     Router(config-line)# password yourpassword
     Router(config-line)# login
     ```
     ```c
-    // to access it, open the command prompt on any end-device and do the following command
+    /* to access it, open the command prompt on any
+    end-device and do the following command */
     telnel ip-address-of-router
     ```
 ---
@@ -95,7 +100,8 @@ before accessing **privileged EXEC mode**:
 2) The startup configuration file (NVRAM).
 
 ```c
-// To save the current configuration of the router to the startup configuration file
+/* To save the current configuration of the router
+to the startup configuration file */
 Router# copy running-config startup-config
 
 // To show the overall configurations that you make
@@ -104,7 +110,8 @@ Router# show running-config
 // If you need to restore the previous configurations
 Router# reload
 
-// if the undesired changes were saved to the startup-config file, it may be necessary to clear all the configurations 
+/* if the undesired changes were saved to the startup-config
+file, it may be necessary to clear all the configurations */
 Router# erase stratup-config
 Router# reload
 ```
