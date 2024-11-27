@@ -44,18 +44,18 @@
 
 **Basic commands line:**
 1. Configuring a router Host Name:
-    ```
+    ```c
     Router(config)# hostname NES413
     ```
 
 2. Login banners: A login banner is a message that is displayed at login.
-    ```
+    ```c
     Router(config)# banner motd #your statment#
     ```
 
 3. Prevent the translation of incorrectly entered commands as though they
 were hostnames.
-    ```
+    ```c
     Router(config)# no ip domain-lookup
     ```
 
