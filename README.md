@@ -135,3 +135,39 @@ Router# reload
     ```
 
 ## Lab4: Dynamic Routing:
+
+1) Using RIP:
+    ```c
+    Router(config)# router rip
+    Router(config-router)# version 2
+    Router(config-router)# no auto-summary
+
+    // for each directly connected network
+    Router(config-router)# network network-address
+
+    // set passive interface
+    Router(config-router)# passive-interface interface-type-and-number
+    ```
+
+2) Using OSPF:
+    ```c
+    Router(config)# router ospf process_ID
+
+    // wildcard_mask = 255.255.255.255 – subnet mask
+    Router(config-router)# network network_address wildcard_mask area 0
+
+    Router(config-router)# passive-interface interface-type-and-number
+    ```
+
+3) To view information about the routing processes:
+    ```c
+    Router# show ip protocols
+    ```
+
+## Tips:
+
+1) Use the `?` in the command prompt to remember any command you might've forgetten.
+
+2) Check the connectivity using `ping` on the command prompt of any end-device.
+
+3) Check the up/down indicators (the green triangles) on Cisco Packet Tracer interfaces as they represent the **link status** of the network interface.
