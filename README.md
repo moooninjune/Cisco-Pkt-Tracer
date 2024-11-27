@@ -63,22 +63,22 @@ were hostnames.
 before accessing **privileged EXEC mode**:
 
     - Enable Password: set a password to the privileged mode. The password is displayed as clear text in the router’s configuration file.
-        ```
+        ```c
         Router(config)# enable password yourpassword
         ```
 
     - Enable Secret: encrypted secret password to privileged mode. The password is displayed as encrypted text in the router’s configuration file.
-        ```
+        ```c
         Router(config)# enable secret yourpassword
         ```
 
 5. The service password-encryption global configuration command to prevent passwords from displaying as plain text in the configuration file.
-    ```
+    ```c
     Router(config)# service password-encryption
     ````
 
 6. Configuring Ethernet interfaces:
-    ```
+    ```c
     Router(config)#interface type-and-number
     Router(config-if)# description descriptive-text
     Router(config-if)#ip address ipaddress subnetmask
@@ -86,12 +86,12 @@ before accessing **privileged EXEC mode**:
     ```
 
 7. To verify the IPv4 addresses for all interfaces:
-    ```
+    ```c
     Router# show ip interface brief
     ```
 
 8. To show the routing table of the router use the following command in the privileged EXEC mode:
-    ```
+    ```c
     Router# show ip route
     ```
 
@@ -119,7 +119,7 @@ Router# reload
 ## Lab3: Static Routing:
 
 1) To configure static routes with a **next-hop IP address** or **exit interface** specified:
-    ```
+    ```c
     Router(config)# ip route network-address subnet-mask next-hop-address
     ```
     ```
@@ -127,7 +127,7 @@ Router# reload
     ```
 
 2) To configure a default static route with a **next-hop IP address** or **exit interface** specified:
-    ```
+    ```c
     Router(config)# ip route 0.0.0.0 0.0.0.0 next-hop-address
     ```
     ```
