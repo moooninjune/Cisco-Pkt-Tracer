@@ -122,7 +122,7 @@ Router# reload
     ```c
     Router(config)# ip route network-address subnet-mask next-hop-address
     ```
-    ```
+    ```c
     Router(config)# ip route network-address subnet-mask exit-interface
     ```
 
@@ -130,7 +130,7 @@ Router# reload
     ```c
     Router(config)# ip route 0.0.0.0 0.0.0.0 next-hop-address
     ```
-    ```
+    ```c
     Router(config)# ip route 0.0.0.0 0.0.0.0 exit-interface
     ```
 
