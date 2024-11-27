@@ -11,6 +11,8 @@
     2. Line mode: Used to configure the device’s access lines
     3. Router mode: Used to configure the routing information
 
+---
+
 **Configuring router's interfaces can be done in different ways:**
 - GUI of the router
 - CLI directly on the router
@@ -33,6 +35,7 @@
     // to access it, open the command prompt on any end-device and do the following command
     telnel ip-address-of-router
     ```
+---
 
 **Basic commands line:**
 1. Configuring a router Host Name:
@@ -123,3 +126,5 @@ Router# reload
     ```
     Router(config)# ip route 0.0.0.0 0.0.0.0 exit-interface
     ```
+
+## Lab4: Dynamic Routing:
