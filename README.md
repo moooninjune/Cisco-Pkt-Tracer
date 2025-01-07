@@ -174,44 +174,45 @@ Router(config-router)# passive-interface interface-type-and-number
 
 ### 1) DHCP (Dynamic Host Configuration Protocol)
 - Exclude statically assigned IP addresses:
-```c
-Router(config)# ip dhcp excluded-address FirstIP LastIP
-```
+    ```c
+    Router(config)# ip dhcp excluded-address FirstIP LastIP
+    ```
 
 - Configure the DHCP pool:
-```c
-Router(config)# ip dhcp pool POOLNAME
-Router(dhcp-config)# network NETWORKID MASK
-Router(dhcp-config)# dns-server IP Address
-Router(dhcp-config)# default-router IP Address
-```
+    ```c
+    Router(config)# ip dhcp pool POOLNAME
+    Router(dhcp-config)# network NETWORKID MASK
+    Router(dhcp-config)# dns-server IP Address
+    Router(dhcp-config)# default-router IP Address
+    ```
 
 - To display a list of all IPv4 address to MAC address bindings that
 have been provided by the DHCP server:
-```c
-Router# show ip dhcp binding
-```
+    ```c
+    Router# show ip dhcp binding
+    ```
 ---
 ### 2) FTP (File Transfer Protocol)
 - Enable FTP service on the server from the **Services tab**.
 - Create user accounts in the **User Setup** and specify the permissions you want for each user: *(Write, Read, Delete, Rename and List)*.
 - Now, on end-devices, on the command prompt:
-```c
-// to connect to your FTP server
-ftp ip_address_of_Server
 
-// to list the contents of the directory
-dir
+    ```c
+    // to connect to your FTP server
+    ftp ip_address_of_Server
 
-// to upload a file into the server
-put myfile.txt
+    // to list the contents of the directory
+    dir
 
-// to download a file from the server
-get myfile.txt
+    // to upload a file into the server
+    put myfile.txt
 
-// to delete a file from directory
-delete myfile.txt
-```
+    // to download a file from the server
+    get myfile.txt
+
+    // to delete a file from directory
+    delete myfile.txt
+    ```
 ---
 ### 3) ACL (Access Control List)
 ACL is a set of IOS commands applied to a router’s interface and used to **filter packets** based on the information found in the packet header. **There are two types of ACL:** 
@@ -222,137 +223,218 @@ ACL is a set of IOS commands applied to a router’s interface and used to **fil
 **We will cover Standard ACL only:**
 
 1) **Numbered Standard ACL:**
-```c
-Router(config)# access-list access-list-number {deny | permit | remark text} source [source-wildcard] [log]
+    ```c
+    Router(config)# access-list access-list-number {deny | permit | remark text} source [source-wildcard] [log]
 
-// wildcard mask identifes which source address should be filtered
-// there are two keywords for the most common use of wildcard mask:
+    // wildcard mask identifes which source address should be filtered
+    // there are two keywords for the most common use of wildcard mask:
 
-// 1) Host: this keword is equivalent to the 0.0.0.0 wildcard
-// (filtering only single IP address)
-Router(config)# access-list 1 deny host 10.0.0.2
+    // 1) Host: this keword is equivalent to the 0.0.0.0 wildcard
+    // (filtering only single IP address)
+    Router(config)# access-list 1 deny host 10.0.0.2
 
-// 2) Any: this keyword is equivalent to the 255.255.255.255 wildcard
-// (any IP address is accepted)
-Router(config)# access-list 1 permit any
-```
+    // 2) Any: this keyword is equivalent to the 255.255.255.255 wildcard
+    // (any IP address is accepted)
+    Router(config)# access-list 1 permit any
+    ```
 
 2) **Named Standard ACL:**
-```c
-Router(config)# ip access-list standard access-list-name
+    ```c
+    Router(config)# ip access-list standard access-list-name
 
-// After an ACL is created it must be linked to a router’s interface
-Router(config)# interface interface-type-and-number
+    // After an ACL is created it must be linked to a router’s interface
+    Router(config)# interface interface-type-and-number
 
-Router(config-if)# ip access-group {access-list-number | accesslist-name} {in | out}
+    Router(config-if)# ip access-group {access-list-number | accesslist-name} {in | out}
 
-// in: packets are filtered before being routed.
-// out: packets are filtered after being routed.
-```
+    // in: packets are filtered before being routed.
+    // out: packets are filtered after being routed.
+    ```
 
-In Priviledged mode, you can view the **ACL configurations** using:
-```c
-Router# show access-lists
-```
+- In Priviledged mode, you can view the **ACL configurations** using:
+
+    ```c
+    Router# show access-lists
+    ```
 
 # Basic IPv6 Configuration
 - Configure IPv6 addressing on interfaces:
-```c
-// to enable the router to forward IPv6 packets.
-R1(config)# ipv6 unicast-routing
+    ```c
+    // to enable the router to forward IPv6 packets.
+    R1(config)# ipv6 unicast-routing
 
-// Configure the IPv6 Global Unicast Address (GUA)
-R1(config)#interface type-and-number
-R1(config-if)# ipv6 address 2001:DB8:1:1::1/64
+    // Configure the IPv6 Global Unicast Address (GUA)
+    R1(config)#interface type-and-number
+    R1(config-if)# ipv6 address 2001:DB8:1:1::1/64
 
-// Configure the link-local IPv6 address
-// sed to communicate with other devices that are on the same link
-R1(config-if)# ipv6 address FE80::1 link-local
+    // Configure the link-local IPv6 address
+    // sed to communicate with other devices that are on the same link
+    R1(config-if)# ipv6 address FE80::1 link-local
 
-// Don't forget to activate the interface
-R1(config-if)# no shutdown
-```
+    // Don't forget to activate the interface
+    R1(config-if)# no shutdown
+    ```
 
 - To verify the IPv6 addresses for all interfaces:
-```c
-R1# show ipv6 interface brief
-```
+    ```c
+    R1# show ipv6 interface brief
+    ```
 
 - OSPFv3 routing:
-```c
-// enable OSPFv3 routing
-R1(config)# ipv6 router ospf process_id
+    ```c
+    // enable OSPFv3 routing
+    R1(config)# ipv6 router ospf process_id
 
-// inside the ospf router subconfiguration mode
-R1(config-rtr)# router-id router_id
-R1(config-rtr)# passive-interface interface_name
+    // inside the ospf router subconfiguration mode
+    R1(config-rtr)# router-id router_id
+    R1(config-rtr)# passive-interface interface_name
 
-// access the activated and configured interfaces
-R1(config-if)# ipv6 ospf process_id area 0
-```
+    // access the activated and configured interfaces
+    R1(config-if)# ipv6 ospf process_id area 0
+    ```
 
 - OSPFv3 validation:
-```c
-R1# show ipv6 route
 
-R1# show ipv6 protocol
-```
+    ```c
+    R1# show ipv6 route
+
+    R1# show ipv6 protocol
+    ```
 
 # VLANs Configuration in Switched Networks
 - Creating the VLANs:
-```c
-Switch(config)# vlan vlan-id
-Switch(config)# name vlan-name
-Switch(config)# end
-```
+    ```c
+    Switch(config)# vlan vlan-id
+    Switch(config)# name vlan-name
+    Switch(config)# end
+    ```
 
 - Assigning switch ports to specific VLANs (either access or trunk).
-```c
-Switch(config)# interface interface-id
+    ```c
+    Switch(config)# interface interface-id
 
-Switch(config-if)# switchport mode access
-Switch(config-if)# switchport access vlan vlan-id
+    Switch(config-if)# switchport mode access
+    Switch(config-if)# switchport access vlan vlan-id
 
-Switch(config-if)# switchport mode trunk
-Switch(config-if)# switchport trunk allowed vlan 10,20,30
-```
+    Switch(config-if)# switchport mode trunk
+    Switch(config-if)# switchport trunk allowed vlan 10,20,30
+    ```
 
 - Show commands:
-```
-Switch# show vlan
-Switch# show interfaces interface_id switchport
-Switch# show interfaces trunk
-```
+    ```
+    Switch# show vlan
+    Switch# show interfaces interface_id switchport
+    Switch# show interfaces trunk
+    ```
 
 - Inter-VLAN routing:
-```c
-R1(config)#interface interface-id
-R1(config-subif)# encapsulation dot1Q 10
-R1(config-subif)# ip address ip-address subnet-mask
-```
+
+    ```c
+    R1(config)#interface interface-id
+    R1(config-subif)# encapsulation dot1Q 10
+    R1(config-subif)# ip address ip-address subnet-mask
+    ```
 
 - To manage the switch (and the VLANs) remotely:
-```c
-// Set up the SVI (switch virtual interface)
-Switch1(config)# interface vlan vlan-id
-Switch1(config-if)# ip address ip-address subnet-mask
-Switch1(config-if)# no shutdown
-Switch1(config-if)# exit
-Switch1(config)# ip default-gateway ip-address
 
-// Configure the VTY lines on the switch
-Switch1 (config)# line vty 0 4
-Switch1 (config-line)# password your-password
-Switch1 (config-line)# login
+    ```c
+    // Set up the SVI (switch virtual interface)
+    Switch1(config)# interface vlan vlan-id
+    Switch1(config-if)# ip address ip-address subnet-mask
+    Switch1(config-if)# no shutdown
+    Switch1(config-if)# exit
+    Switch1(config)# ip default-gateway ip-address
 
-// Access the switch remotely using telnet
-// Using any end-device, on the command prompt
-telnet switch-ip-address
-```
+    // Configure the VTY lines on the switch
+    Switch1 (config)# line vty 0 4
+    Switch1 (config-line)# password your-password
+    Switch1 (config-line)# login
 
-# NAT and PAT Configuration
+    // Access the switch remotely using telnet
+    // Using any end-device, on the command prompt
+    telnet switch-ip-address
+    ```
 
-# Network Troubleshooting
+# NAT Configuration
+1) **Static NAT:**
+Static NAT is a **one-to-one mapping** between an inside local address (private address) and an inside global address (public address) **configured by the network administrator** that remain constant.
+
+    ```c
+    // Create a mapping b/w the inside local address & the inside global address 
+    Edge(config)# ip nat inside source static Private-Address Public-Address
+
+    // Configure the participating interfaces in the translation as inside or outside
+    Edge(config)# interface interface-id
+    Edge(config-if)# ip nat inside
+
+    Edge(config)# interface interface-id
+    Edge(config-if)# ip nat outside
+    ```
+
+- **Verify NAT operations:**
+
+    ```c
+    Edge# show ip nat translations
+
+    Edge# show ip nat statistics
+    ```
+
+2) **Dynamic NAT:**
+Dynamic NAT **automatically** maps inside local addresses to inside global addresses (many-to-many mapping), it uses a **pool of inside global addresses.**
+
+    ```c
+    // 1. Define the pool of addresses that will be used for translation
+    Edge(config)# ip nat pool pool-name First-IP Last-IP netmask Subnet-mask
+
+    // 2. Configure a standard ACL to permit only those addresses that are to be translated
+    Edge(config)# access-list list-id-number permit IP-address wild-card
+
+    // Note: in the wildcard, 0 bit means exact match in IP bit (host)
+    // and 1 bit means any value in IP bit (any).
+
+    // 3. Bind the ACL to the pool
+    Edge(config)# ip nat inside source list list-id-number pool pool-name
+
+    // 4. Identify which interfaces are inside & which are outside
+    Edge(config)# interface interface-id
+    Edge(config-if)# ip nat inside
+
+    Edge(config)# interface interface-id
+    Edge(config-if)# ip nat outside
+    ```
+
+- It is best to clear statistics from any past translations:
+
+    ```c
+    Edge# clear ip nat translation *
+    ```
+
+# PAT Configuration
+PAT, also known as **NAT overload**, maps **multiple private IPv4 addresses to a single public IPv4 address** or a few addresses (many-to-one mapping).
+
+1) **Configure PAT to use a single IP address:**
+
+    ```c
+    // 1. Configure a standard ACL to permit only those addresses that are to be translated
+    Edge(config)# access-list list-id-number permit IP-address wild-card
+
+    // 2. Bind the ACL to the single IP address that will be used
+    Edge(config)# ip nat inside source list list-id-number interface interface-name overload
+
+    // 3. Identify which interfaces are inside & which are outside
+    Edge(config)# interface interface-id
+    Edge(config-if)# ip nat inside
+
+    Edge(config)# interface interface-id
+    Edge(config-if)# ip nat outside
+    ```
+
+2) **Configure PAT to use an Address Pool:**
+To configure PAT to use an address pool, you will use the same steps used in the dynamic NAT except that you **add the keyword `overload` to the ip nat inside source command**.
+
+    ```c
+    Edge(config)# ip nat inside source list list-id-number pool pool-name overload
+    ```
 
 # Tips
 
@@ -361,6 +443,7 @@ telnet switch-ip-address
 2) Check the connectivity using `ping` on the command prompt of any end-device.
 
 3) Check the up/down indicators (the green triangles) on Cisco Packet Tracer interfaces as they represent the **link status** of the network interface.
+
     ```c
     // or using this command
     Router# show ip interface brief
