@@ -3,13 +3,13 @@
 # Basic Router Configuration
 
 ### Command line modes:
-- User EXEC mode: is the default when u open
-- Priviliged EXEC mode: `enable`
-- Global configuration mode: `configure terminal`
+- **User EXEC mode:** is the default when u open
+- **Priviliged EXEC mode:** `enable`
+- **Global configuration mode:** `configure terminal`
 
-    1. Interface mode: Used to configure the device’s interface/port
-    2. Line mode: Used to configure the device’s access lines
-    3. Router mode: Used to configure the routing information
+    1. **Interface mode:** Used to configure the device’s interface/port
+    2. **Line mode:** Used to configure the device’s access lines
+    3. **Router mode:** Used to configure the routing information
 
 ---
 
@@ -55,6 +55,7 @@
 were hostnames.
     ```c
     Router(config)# no ip domain-lookup
+    // or use Ctrl+Shift+6
     ```
 
 4. Configuring router passwords: Passwords restrict access to routers. The following two commands can be used to establish authentication
@@ -97,26 +98,31 @@ before accessing **privileged EXEC mode**:
 1) The running configuration file (RAM).
 2) The startup configuration file (NVRAM).
 
-```c
-// To save the current configuration of the router
-// to the startup configuration file
-Router# copy running-config startup-config
+- To save the current configuration of the router to the startup configuration file:
 
-// To show the overall configurations that you make
-Router# show running-config
+    ```c
+    Router# copy running-config startup-config
+    ```
 
-// If you need to restore the previous configurations
-Router# reload
+- To show the overall configurations that you make:
+    ```c
+    Router# show running-config
+    ```
 
-// If the undesired changes were saved to the startup-config
-// file, it may be necessary to clear all the configurations
-Router# erase stratup-config
-Router# reload
-```
+- If you need to restore the previous configurations:
+    ```c
+    Router# reload
+    ```
+
+- If the undesired changes were saved to the startup-config file, it may be necessary to clear all the configurations:
+    ```c
+    Router# erase stratup-config
+    Router# reload
+    ```
 
 # Static Routing
 
-1) To configure static routes with a **next-hop IP address** or **exit interface** specified:
+1) To configure **static routes** with a *next-hop IP address* or *exit interface* specified:
     ```c
     Router(config)# ip route network-address subnet-mask next-hop-address
     ```
@@ -124,7 +130,7 @@ Router# reload
     Router(config)# ip route network-address subnet-mask exit-interface
     ```
 
-2) To configure a default static route with a **next-hop IP address** or **exit interface** specified:
+2) To configure a **default static route** with a *next-hop IP address* or *exit interface* specified:
     ```c
     Router(config)# ip route 0.0.0.0 0.0.0.0 next-hop-address
     ```
@@ -134,7 +140,7 @@ Router# reload
 
 # Dynamic Routing:
 
-1) Using RIP:
+### 1) Using RIP:
     ```c
     Router(config)# router rip
     Router(config-router)# version 2
@@ -147,7 +153,7 @@ Router# reload
     Router(config-router)# passive-interface interface-type-and-number
     ```
 
-2) Using OSPF:
+### 2) Using OSPF:
     ```c
     Router(config)# router ospf process_ID
 
@@ -157,7 +163,7 @@ Router# reload
     Router(config-router)# passive-interface interface-type-and-number
     ```
 
-3) To view information about the routing processes:
+### 3) To view information about the routing processes:
     ```c
     Router# show ip protocols
     ```
