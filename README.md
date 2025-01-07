@@ -2,7 +2,7 @@
 
 # Basic Router Configuration
 
-### Command line modes:
+### Command line modes
 - **User EXEC mode:** is the default when u open.
 - **Priviliged EXEC mode:** `enable`
 - **Global configuration mode:** `configure terminal`
@@ -13,7 +13,7 @@
 
 ---
 
-### Configuring router's interfaces can be done in different ways:
+### Configuring router's interfaces can be done in different ways
 - GUI of the router
 - CLI directly on the router
 - Through an end-device using **Console Cable** connected to the router
@@ -40,7 +40,7 @@
     ```
 ---
 
-### Basic commands line:
+### Basic commands line
 1. Configuring a router Host Name:
     ```c
     Router(config)# hostname NES413
@@ -94,7 +94,7 @@ before accessing **privileged EXEC mode**:
     Router# show ip route
     ```
 ---
-### A Cisco network device contains two configuration files:
+### A Cisco network device contains two configuration files
 1) The running configuration file (RAM).
 2) The startup configuration file (NVRAM).
 
@@ -140,7 +140,12 @@ before accessing **privileged EXEC mode**:
 
 # Dynamic Routing
 
-### 1) Using RIP:
+To view information about the routing processes:
+```c
+Router# show ip protocols
+```
+
+### 1) Using RIP (Routing Information Protocol)
  ```c
 Router(config)# router rip
 Router(config-router)# version 2
@@ -153,7 +158,7 @@ Router(config-router)# network network-address
 Router(config-router)# passive-interface interface-type-and-number
 ```
 
-### 2) Using OSPF:
+### 2) Using OSPF (Open Shortest Path First Protocol)
 ```c
 Router(config)# router ospf process_ID
 
@@ -165,14 +170,9 @@ Router(config-router)# network network_address wildcard_mask area 0
 Router(config-router)# passive-interface interface-type-and-number
 ```
 
-### 3) To view information about the routing processes:
-```c
-Router# show ip protocols
-```
-
 # DHCP, FTP and Standard ACL Configuration
 
-### 1) DHCP:
+### 1) DHCP (Dynamic Host Configuration Protocol)
 - Exclude statically assigned IP addresses:
 ```c
 Router(config)# ip dhcp excluded-address FirstIP LastIP
@@ -192,7 +192,7 @@ have been provided by the DHCP server:
 Router# show ip dhcp binding
 ```
 ---
-### 2) FTP:
+### 2) FTP (File Transfer Protocol)
 - Enable FTP service on the server from the **Services tab**.
 - Create user accounts in the **User Setup** and specify the permissions you want for each user: *(Write, Read, Delete, Rename and List)*.
 - Now, on end-devices, on the command prompt:
@@ -213,14 +213,13 @@ get myfile.txt
 delete myfile.txt
 ```
 ---
-### 3) ACL:
-ACL is a set of IOS commands applied to a router’s interface and used to **filter packets** based on the information found in the packet header. **There are two types of ACL:**
-    
+### 3) ACL (Access Control List)
+ACL is a set of IOS commands applied to a router’s interface and used to **filter packets** based on the information found in the packet header. **There are two types of ACL:** 
+
 - **Standard ACL** uses the source IP address of the packet to control whether a packet is permitted or denied.
-
 - **Extended ACL** allows the router to filter the packets based on the source and/or destination IP addresses.
-
-### We will cover Standard ACL only:
+ 
+**We will cover Standard ACL only:**
 
 1) **Numbered Standard ACL:**
 ```c
@@ -251,12 +250,53 @@ Router(config-if)# ip access-group {access-list-number | accesslist-name} {in | 
 // out: packets are filtered after being routed.
 ```
 
-In Priviledged mode, you can view the ACL configurations using:
+In Priviledged mode, you can view the **ACL configurations** using:
 ```c
-show access-lists
+Router# show access-lists
 ```
 
 # Basic IPv6 Configuration
+- Configure IPv6 addressing on interfaces:
+```c
+// to enable the router to forward IPv6 packets.
+R1(config)# ipv6 unicast-routing
+
+// Configure the IPv6 Global Unicast Address (GUA)
+R1(config)#interface type-and-number
+R1(config-if)# ipv6 address 2001:DB8:1:1::1/64
+
+// Configure the link-local IPv6 address
+// sed to communicate with other devices that are on the same link
+R1(config-if)# ipv6 address FE80::1 link-local
+
+// Don't forget to activate the interface
+R1(config-if)# no shutdown
+```
+
+- To verify the IPv6 addresses for all interfaces:
+```c
+R1# show ipv6 interface brief
+```
+
+- OSPFv3 routing:
+```c
+// enable OSPFv3 routing
+R1(config)# ipv6 router ospf process_id
+
+// inside the ospf router subconfiguration mode
+R1(config-rtr)# router-id router_id
+R1(config-rtr)# passive-interface interface_name
+
+// access the activated and configured interfaces
+R1(config-if)# ipv6 ospf process_id area 0
+```
+
+- OSPFv3 validation:
+```c
+R1# show ipv6 route
+
+R1# show ipv6 protocol
+```
 
 # VLANs Configuration in Switched Networks
 
