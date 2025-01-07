@@ -141,32 +141,32 @@ before accessing **privileged EXEC mode**:
 # Dynamic Routing:
 
 ### 1) Using RIP:
-    ```c
-    Router(config)# router rip
-    Router(config-router)# version 2
-    Router(config-router)# no auto-summary
+ ```c
+Router(config)# router rip
+Router(config-router)# version 2
+Router(config-router)# no auto-summary
 
-    // for each directly connected network
-    Router(config-router)# network network-address
+// for each directly connected network
+Router(config-router)# network network-address
 
-    // set passive interface
-    Router(config-router)# passive-interface interface-type-and-number
-    ```
+// set passive interface
+Router(config-router)# passive-interface interface-type-and-number
+```
 
 ### 2) Using OSPF:
-    ```c
-    Router(config)# router ospf process_ID
+```c
+Router(config)# router ospf process_ID
 
-    // wildcard_mask = 255.255.255.255 – subnet mask
-    Router(config-router)# network network_address wildcard_mask area 0
+// wildcard_mask = 255.255.255.255 – subnet mask
+Router(config-router)# network network_address wildcard_mask area 0
 
-    Router(config-router)# passive-interface interface-type-and-number
-    ```
+Router(config-router)# passive-interface interface-type-and-number
+```
 
 ### 3) To view information about the routing processes:
-    ```c
-    Router# show ip protocols
-    ```
+```c
+Router# show ip protocols
+```
 
 # Basic DHCP, FTP and Standard ACL Configuration:
 
