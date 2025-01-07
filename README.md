@@ -1,4 +1,3 @@
-# Cisco Packet Tracer Commands
 ![alt text](image-3.png)
 
 # Basic Router Configuration
