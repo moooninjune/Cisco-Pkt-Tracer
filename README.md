@@ -93,7 +93,7 @@ before accessing **privileged EXEC mode**:
     ```c
     Router# show ip route
     ```
-
+---
 ### A Cisco network device contains two configuration files:
 1) The running configuration file (RAM).
 2) The startup configuration file (NVRAM).
@@ -138,7 +138,7 @@ before accessing **privileged EXEC mode**:
     Router(config)# ip route 0.0.0.0 0.0.0.0 exit-interface
     ```
 
-# Dynamic Routing:
+# Dynamic Routing
 
 ### 1) Using RIP:
  ```c
@@ -170,7 +170,7 @@ Router(config-router)# passive-interface interface-type-and-number
 Router# show ip protocols
 ```
 
-# Basic DHCP, FTP and Standard ACL Configuration:
+# DHCP, FTP and Standard ACL Configuration
 
 ### 1) DHCP:
 - Exclude statically assigned IP addresses:
@@ -191,7 +191,7 @@ have been provided by the DHCP server:
 ```c
 Router# show ip dhcp binding
 ```
-
+---
 ### 2) FTP:
 - Enable FTP service on the server from the **Services tab**.
 - Create user accounts in the **User Setup** and specify the permissions you want for each user: *(Write, Read, Delete, Rename and List)*.
@@ -212,17 +212,15 @@ get myfile.txt
 // to delete a file from directory
 delete myfile.txt
 ```
-
+---
 ### 3) ACL:
-ACL is a set of IOS commands applied to a router’s interface and used to **filter packets** based on the information found in the packet header.
-
-**There are two types of ACL:**
+ACL is a set of IOS commands applied to a router’s interface and used to **filter packets** based on the information found in the packet header. **There are two types of ACL:**
     
 - **Standard ACL** uses the source IP address of the packet to control whether a packet is permitted or denied.
 
 - **Extended ACL** allows the router to filter the packets based on the source and/or destination IP addresses.
 
-**We will cover Standard ACL**:
+### We will cover Standard ACL only:
 
 1) **Numbered Standard ACL:**
 ```c
@@ -258,15 +256,15 @@ In Priviledged mode, you can view the ACL configurations using:
 show access-lists
 ```
 
-# Basic IPv6 Configuration:
+# Basic IPv6 Configuration
 
-# VLANs Configuration in Switched Networks:
+# VLANs Configuration in Switched Networks
 
-# NAT and PAT Configuration:
+# NAT and PAT Configuration
 
-# Network Troubleshooting:
+# Network Troubleshooting
 
-# Tips:
+# Tips
 
 1) Use the `?` in the command prompt to remember any command you might've forgetten.
 
