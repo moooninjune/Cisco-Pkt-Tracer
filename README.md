@@ -157,9 +157,11 @@ Router(config-router)# passive-interface interface-type-and-number
 ```c
 Router(config)# router ospf process_ID
 
+// for each directly connected network
 // wildcard_mask = 255.255.255.255 – subnet mask
 Router(config-router)# network network_address wildcard_mask area 0
 
+// set passive interface
 Router(config-router)# passive-interface interface-type-and-number
 ```
 
