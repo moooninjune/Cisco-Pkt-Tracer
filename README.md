@@ -242,7 +242,7 @@ Router(config)# access-list 1 permit any
 Router(config)# ip access-list standard access-list-name
 
 // After an ACL is created it must be linked to a router’s interface
-Router(config)# interface interface-type-and number
+Router(config)# interface interface-type-and-number
 
 Router(config-if)# ip access-group {access-list-number | accesslist-name} {in | out}
 
@@ -299,6 +299,56 @@ R1# show ipv6 protocol
 ```
 
 # VLANs Configuration in Switched Networks
+- Creating the VLANs:
+```c
+Switch(config)# vlan vlan-id
+Switch(config)# name vlan-name
+Switch(config)# end
+```
+
+- Assigning switch ports to specific VLANs (either access or trunk).
+```c
+Switch(config)# interface interface-id
+
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan vlan-id
+
+Switch(config-if)# switchport mode trunk
+Switch(config-if)# switchport trunk allowed vlan 10,20,30
+```
+
+- Show commands:
+```
+Switch# show vlan
+Switch# show interfaces interface_id switchport
+Switch# show interfaces trunk
+```
+
+- Inter-VLAN routing:
+```c
+R1(config)#interface interface-id
+R1(config-subif)# encapsulation dot1Q 10
+R1(config-subif)# ip address ip-address subnet-mask
+```
+
+- To manage the switch (and the VLANs) remotely:
+```c
+// Set up the SVI (switch virtual interface)
+Switch1(config)# interface vlan vlan-id
+Switch1(config-if)# ip address ip-address subnet-mask
+Switch1(config-if)# no shutdown
+Switch1(config-if)# exit
+Switch1(config)# ip default-gateway ip-address
+
+// Configure the VTY lines on the switch
+Switch1 (config)# line vty 0 4
+Switch1 (config-line)# password your-password
+Switch1 (config-line)# login
+
+// Access the switch remotely using telnet
+// Using any end-device, on the command prompt
+telnet switch-ip-address
+```
 
 # NAT and PAT Configuration
 
