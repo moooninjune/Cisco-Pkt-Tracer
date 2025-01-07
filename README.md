@@ -3,7 +3,7 @@
 # Basic Router Configuration
 
 ### Command line modes
-- **User EXEC mode:** is the default when u open.
+- **User EXEC mode:** is the default when you open.
 - **Priviliged EXEC mode:** `enable`
 - **Global configuration mode:** `configure terminal`
 
@@ -449,4 +449,3 @@ To configure PAT to use an address pool, you will use the same steps used in the
     Router# show ip interface brief
     ```
     ---
-    
