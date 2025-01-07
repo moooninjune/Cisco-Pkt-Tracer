@@ -173,13 +173,90 @@ Router# show ip protocols
 # Basic DHCP, FTP and Standard ACL Configuration:
 
 ### 1) DHCP:
+- Exclude statically assigned IP addresses:
+```c
+Router(config)# ip dhcp excluded-address FirstIP LastIP
+```
 
+- Configure the DHCP pool:
+```c
+Router(config)# ip dhcp pool POOLNAME
+Router(dhcp-config)# network NETWORKID MASK
+Router(dhcp-config)# dns-server IP Address
+Router(dhcp-config)# default-router IP Address
+```
+
+- To display a list of all IPv4 address to MAC address bindings that
+have been provided by the DHCP server:
+```c
+Router# show ip dhcp binding
+```
 
 ### 2) FTP:
+- Enable FTP service on the server from the **Services tab**.
+- Create user accounts in the **User Setup** and specify the permissions you want for each user: *(Write, Read, Delete, Rename and List)*.
+- Now, on end-devices, on the command prompt:
+```c
+// to connect to your FTP server
+ftp ip_address_of_Server
 
+// to list the contents of the directory
+dir
+
+// to upload a file into the server
+put myfile.txt
+
+// to download a file from the server
+get myfile.txt
+
+// to delete a file from directory
+delete myfile.txt
+```
 
 ### 3) ACL:
+ACL is a set of IOS commands applied to a router’s interface and used to **filter packets** based on the information found in the packet header.
 
+**There are two types of ACL:**
+    
+- **Standard ACL** uses the source IP address of the packet to control whether a packet is permitted or denied.
+
+- **Extended ACL** allows the router to filter the packets based on the source and/or destination IP addresses.
+
+**We will cover Standard ACL**:
+
+1) **Numbered Standard ACL:**
+```c
+Router(config)# access-list access-list-number {deny | permit | remark text} source [source-wildcard] [log]
+
+// wildcard mask identifes which source address should be filtered
+// there are two keywords for the most common use of wildcard mask:
+
+// 1) Host: this keword is equivalent to the 0.0.0.0 wildcard
+// (filtering only single IP address)
+Router(config)# access-list 1 deny host 10.0.0.2
+
+// 2) Any: this keyword is equivalent to the 255.255.255.255 wildcard
+// (any IP address is accepted)
+Router(config)# access-list 1 permit any
+```
+
+2) **Named Standard ACL:**
+```c
+Router(config)# ip access-list standard access-list-name
+
+// After an ACL is created it must be linked to a router’s interface
+Router(config)# interface interface-type-and number
+
+Router(config-if)# ip access-group {access-list-number | accesslist-name} {in | out}
+
+// in: packets are filtered before being routed.
+// out: packets are filtered after being routed.
+```
+
+In Priviledged mode, you can view the ACL configurations using:
+```c
+show access-lists
+```
 
 # Basic IPv6 Configuration:
 
