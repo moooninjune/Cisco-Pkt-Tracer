@@ -13,7 +13,7 @@
 
 ---
 
-### Configuring router's interfaces can be done in different ways
+### Configuring router's interfaces in different ways
 - GUI of the router
 - CLI directly on the router
 - Through an end-device using **Console Cable** connected to the router
@@ -40,7 +40,7 @@
     ```
 ---
 
-### Basic commands line
+### Basic commands
 1. Configuring a router Host Name:
     ```c
     Router(config)# hostname NES413
@@ -95,8 +95,8 @@ before accessing **privileged EXEC mode**:
     ```
 ---
 ### A Cisco network device contains two configuration files
-1) The running configuration file (RAM).
-2) The startup configuration file (NVRAM).
+1) **The running configuration file (RAM).**
+2) **The startup configuration file (NVRAM).**
 
 - To save the current configuration of the router to the startup configuration file:
 
