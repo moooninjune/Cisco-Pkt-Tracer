@@ -1,4 +1,4 @@
-# Cisco Packet Tracer Commands (Summary)
+# Cisco Packet Tracer Commands
 
 # Basic Router Configuration
 
