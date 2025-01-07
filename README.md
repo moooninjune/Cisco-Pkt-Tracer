@@ -448,4 +448,4 @@ To configure PAT to use an address pool, you will use the same steps used in the
     // or using this command
     Router# show ip interface brief
     ```
-    ---
+---
