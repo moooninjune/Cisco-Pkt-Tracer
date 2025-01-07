@@ -1,6 +1,6 @@
 # Cisco Packet Tracer Commands Summary:
 
-## Lab2: Basic Router Configuration:
+## Basic Router Configuration:
 
 **Command line modes:**
 - User EXEC mode: is the default when u open
@@ -100,8 +100,8 @@ before accessing **privileged EXEC mode**:
 2) The startup configuration file (NVRAM).
 
 ```c
-/* To save the current configuration of the router
-to the startup configuration file */
+// To save the current configuration of the router
+// to the startup configuration file
 Router# copy running-config startup-config
 
 // To show the overall configurations that you make
@@ -110,13 +110,13 @@ Router# show running-config
 // If you need to restore the previous configurations
 Router# reload
 
-/* if the undesired changes were saved to the startup-config
-file, it may be necessary to clear all the configurations */
+// If the undesired changes were saved to the startup-config
+// file, it may be necessary to clear all the configurations
 Router# erase stratup-config
 Router# reload
 ```
 
-## Lab3: Static Routing:
+## Static Routing:
 
 1) To configure static routes with a **next-hop IP address** or **exit interface** specified:
     ```c
@@ -134,7 +134,7 @@ Router# reload
     Router(config)# ip route 0.0.0.0 0.0.0.0 exit-interface
     ```
 
-## Lab4: Dynamic Routing:
+## Dynamic Routing:
 
 1) Using RIP:
     ```c
@@ -164,7 +164,7 @@ Router# reload
     Router# show ip protocols
     ```
 
-## Lab5: Basic DHCP, FTP and Standard ACL Configuration:
+## Basic DHCP, FTP and Standard ACL Configuration:
 
 1) DHCP:
 
@@ -175,8 +175,13 @@ Router# reload
 3) ACL:
 
 
-## Lab6: Basic IPv6 Configuration:
+## Basic IPv6 Configuration:
 
+## VLANs Configuration in Switched Networks:
+
+## NAT and PAT Configuration:
+
+## Network Troubleshooting:
 
 ## Tips:
 
