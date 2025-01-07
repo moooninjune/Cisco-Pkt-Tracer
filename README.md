@@ -119,7 +119,7 @@ before accessing **privileged EXEC mode**:
     Router# erase stratup-config
     Router# reload
     ```
-
+---
 # Static Routing
 
 1) To configure **static routes** with a *next-hop IP address* or *exit interface* specified:
@@ -137,7 +137,7 @@ before accessing **privileged EXEC mode**:
     ```c
     Router(config)# ip route 0.0.0.0 0.0.0.0 exit-interface
     ```
-
+---
 # Dynamic Routing
 
 To view information about the routing processes:
@@ -169,7 +169,7 @@ Router(config-router)# network network_address wildcard_mask area 0
 // set passive interface
 Router(config-router)# passive-interface interface-type-and-number
 ```
-
+---
 # DHCP, FTP and Standard ACL Configuration
 
 ### 1) DHCP (Dynamic Host Configuration Protocol)
@@ -256,7 +256,7 @@ ACL is a set of IOS commands applied to a router’s interface and used to **fil
     ```c
     Router# show access-lists
     ```
-
+---
 # Basic IPv6 Configuration
 - Configure IPv6 addressing on interfaces:
     ```c
@@ -300,7 +300,7 @@ ACL is a set of IOS commands applied to a router’s interface and used to **fil
 
     R1# show ipv6 protocol
     ```
-
+---
 # VLANs Configuration in Switched Networks
 - Creating the VLANs:
     ```c
@@ -354,7 +354,7 @@ ACL is a set of IOS commands applied to a router’s interface and used to **fil
     // Using any end-device, on the command prompt
     telnet switch-ip-address
     ```
-
+---
 # NAT Configuration
 1) **Static NAT:**
 Static NAT is a **one-to-one mapping** between an inside local address (private address) and an inside global address (public address) **configured by the network administrator** that remain constant.
@@ -408,7 +408,7 @@ Dynamic NAT **automatically** maps inside local addresses to inside global addre
     ```c
     Edge# clear ip nat translation *
     ```
-
+---
 # PAT Configuration
 PAT, also known as **NAT overload**, maps **multiple private IPv4 addresses to a single public IPv4 address** or a few addresses (many-to-one mapping).
 
@@ -435,7 +435,7 @@ To configure PAT to use an address pool, you will use the same steps used in the
     ```c
     Edge(config)# ip nat inside source list list-id-number pool pool-name overload
     ```
-
+---
 # Tips
 
 1) Use the `?` in the command prompt to remember any command you might've forgetten.
@@ -448,3 +448,5 @@ To configure PAT to use an address pool, you will use the same steps used in the
     // or using this command
     Router# show ip interface brief
     ```
+    ---
+    
