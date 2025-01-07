@@ -1,8 +1,8 @@
-# Cisco Packet Tracer Commands Summary:
+# Cisco Packet Tracer Commands (Summary)
 
-## Basic Router Configuration:
+# Basic Router Configuration
 
-**Command line modes:**
+### Command line modes:
 - User EXEC mode: is the default when u open
 - Priviliged EXEC mode: `enable`
 - Global configuration mode: `configure terminal`
@@ -13,36 +13,34 @@
 
 ---
 
-**Configuring router's interfaces can be done in different ways:**
+### Configuring router's interfaces can be done in different ways:
 - GUI of the router
 - CLI directly on the router
-- Through an end-device using Console Cable connected to the router
+- Through an end-device using **Console Cable** connected to the router
 
     ```c
-    /* Console port: is the port used to directly access the router
-    and configure (manage) it, so we have to authenticate the
-    access of this port. */
+    // Console port: is the port used to directly access the router,
+    // and configure it to authenticate the access of this port.
     Router(config)# line console 0
     Router(config-line)# password yourpassword
     Router(config-line)# login
     ```
-- Through an end-device using remote access control
+- Through an end-device using **Remote Access Control**
     ```c
-    /* Virtual Teletype (VTY) port: is the port used to remotely access
-    the router and configure (manage) it, so we have to authenticate
-    the access of this port. */
+    // Virtual Teletype (VTY) port: is the port used to remotely access the router
+    // and configure it to authenticate the access of this port.
     Router(config)# line vty 0 4
     Router(config-line)# password yourpassword
     Router(config-line)# login
     ```
     ```c
-    /* to access it, open the command prompt on any
-    end-device and do the following command */
+    // to access it, open the command prompt on any end-device
+    // and do the following command
     telnel ip-address-of-router
     ```
 ---
 
-**Basic commands line:**
+### Basic commands line:
 1. Configuring a router Host Name:
     ```c
     Router(config)# hostname NES413
@@ -95,7 +93,7 @@ before accessing **privileged EXEC mode**:
     Router# show ip route
     ```
 
-**A Cisco network device contains two configuration files:**
+### A Cisco network device contains two configuration files:
 1) The running configuration file (RAM).
 2) The startup configuration file (NVRAM).
 
@@ -116,7 +114,7 @@ Router# erase stratup-config
 Router# reload
 ```
 
-## Static Routing:
+# Static Routing
 
 1) To configure static routes with a **next-hop IP address** or **exit interface** specified:
     ```c
@@ -134,7 +132,7 @@ Router# reload
     Router(config)# ip route 0.0.0.0 0.0.0.0 exit-interface
     ```
 
-## Dynamic Routing:
+# Dynamic Routing:
 
 1) Using RIP:
     ```c
@@ -164,26 +162,26 @@ Router# reload
     Router# show ip protocols
     ```
 
-## Basic DHCP, FTP and Standard ACL Configuration:
+# Basic DHCP, FTP and Standard ACL Configuration:
 
-1) DHCP:
-
-
-2) FTP:
+### 1) DHCP:
 
 
-3) ACL:
+### 2) FTP:
 
 
-## Basic IPv6 Configuration:
+### 3) ACL:
 
-## VLANs Configuration in Switched Networks:
 
-## NAT and PAT Configuration:
+# Basic IPv6 Configuration:
 
-## Network Troubleshooting:
+# VLANs Configuration in Switched Networks:
 
-## Tips:
+# NAT and PAT Configuration:
+
+# Network Troubleshooting:
+
+# Tips:
 
 1) Use the `?` in the command prompt to remember any command you might've forgetten.
 
