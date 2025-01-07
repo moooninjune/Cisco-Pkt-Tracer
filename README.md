@@ -3,13 +3,13 @@
 # Basic Router Configuration
 
 ### Command line modes:
-- **User EXEC mode:** is the default when u open
+- **User EXEC mode:** is the default when u open.
 - **Priviliged EXEC mode:** `enable`
 - **Global configuration mode:** `configure terminal`
 
-    1. **Interface mode:** Used to configure the device’s interface/port
-    2. **Line mode:** Used to configure the device’s access lines
-    3. **Router mode:** Used to configure the routing information
+    1) **Interface mode:** Used to configure the device’s interface/port
+    2) **Line mode:** Used to configure the device’s access lines
+    3) **Router mode:** Used to configure the routing information
 
 ---
 
