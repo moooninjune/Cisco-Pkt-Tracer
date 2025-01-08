@@ -358,14 +358,23 @@ ACL is a set of IOS commands applied to a router’s interface and used to **fil
     Switch1(config)# ip default-gateway ip-address
 
     // Configure the VTY lines on the switch
-    Switch1 (config)# line vty 0 4
-    Switch1 (config-line)# password your-password
-    Switch1 (config-line)# login
+    Switch1(config)# line vty 0 4
+    Switch1(config-line)# password your-password
+    Switch1(config-line)# login
 
     // Access the switch remotely using telnet
     // Using any end-device, on the command prompt
     telnet switch-ip-address
     ```
+
+- **Notes:**
+    - If we used a routing protocol like OSPF, sub-interfaces (VLANs) must be passive-interfaces.
+    - Don't forget to change the state of the parent interface to `UP`:
+        ```c
+        R1(config-if)# interface g0/1
+        R1(config-if)# no shutdown
+        // not for g0/1.10 or g0/1.20 or etc...
+        ```
 ---
 # NAT Configuration
 1) **Static NAT:**
