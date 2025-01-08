@@ -343,7 +343,7 @@ ACL is a set of IOS commands applied to a router’s interface and used to **fil
 
     ```c
     R1(config)#interface interface-id.vlan-id
-    R1(config-subif)# encapsulation dot1Q 10
+    R1(config-subif)# encapsulation dot1Q vlan-id
     R1(config-subif)# ip address ip-address subnet-mask
     ```
 
