@@ -246,6 +246,11 @@ ACL is a set of IOS commands applied to a router’s interface and used to **fil
 2) **Named Standard ACL:**
     ```c
     Router(config)# ip access-list standard access-list-name
+    // deny or permit or remark what you want
+    Router(config-std-nacl)# deny ?
+    A.B.C.D  Address to match
+    any      Any source host
+    host     A single host address
 
     // After an ACL is created it must be linked to a router’s interface
     Router(config)# interface interface-type-and-number
