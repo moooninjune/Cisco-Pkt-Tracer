@@ -458,13 +458,17 @@ To configure PAT to use an address pool, you will use the same steps used in the
     Edge(config)# ip nat inside source list list-id-number pool pool-name overload
     ```
 ---
-# Tips
+# Tips / Troubleshooting Tools
 
-1) Use the `?` in the command prompt to remember any command you might've forgetten.
+1) `show` commands: help monitor installation behavior and normal network behavior, as well as isolate problem areas. 
 
-2) Check the connectivity using `ping` on the command prompt of any end-device.
+2) `ping` command: help determine connectivity between devices.
 
-3) Check the up/down indicators (the green triangles) on Cisco Packet Tracer interfaces as they represent the **link status** of the network interface.
+3) `trace` command: help determine the route by which packets reach their destination from one device to another.
+
+4) Use the `?` in the command prompt to remember any command you might've forgetten.
+
+5) Check the `up/down` indicators (the green triangles) on Cisco Packet Tracer interfaces as they represent the **link state** of the network interface.
 
     ```c
     // or using this command
