@@ -130,6 +130,9 @@ were hostnames.
     ```c
     Router(config)# ip route network-address subnet-mask exit-interface
     ```
+    - Network-address: Destination network address of the remote network.
+    - Subnet-mask: Subnet Mask of the remote network.
+    - Next-hop-address: Next-hop router’s IP address.
 
 2) To configure a **default static route** with a *next-hop IP address* or *exit interface* specified:
     ```c
