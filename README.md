@@ -1,4 +1,4 @@
-![alt text](image-1.png)
+![alt text](/cisco.png)
 
 # Basic Router Configuration
 
@@ -16,7 +16,7 @@
 ### Configuring router's interfaces in different ways
 - GUI of the router
 
-    ![alt text](image.png)
+    ![alt text](/router-GUI.png)
 - CLI directly on the router
 - Through an end-device using **Console Cable** connected to the router
 
