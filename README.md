@@ -60,8 +60,7 @@ were hostnames.
     // or use Ctrl+Shift+6
     ```
 
-4. Configuring router passwords: Passwords restrict access to routers. The following two commands can be used to establish authentication
-before accessing **privileged EXEC mode**:
+4. Configuring router passwords: Passwords restrict access to routers. The following two commands can be used to establish authentication before accessing **privileged EXEC mode**:
 
     - Enable Password: set a password to the privileged mode. The password is displayed as clear text in the router’s configuration file.
         ```c
@@ -80,10 +79,10 @@ before accessing **privileged EXEC mode**:
 
 6. Configuring Ethernet interfaces:
     ```c
-    Router(config)#interface type-and-number
+    Router(config)# interface type-and-number
     Router(config-if)# description descriptive-text
-    Router(config-if)#ip address ipaddress subnetmask
-    Router(config-if)#no shutdown
+    Router(config-if)# ip address ipaddress subnetmask
+    Router(config-if)# no shutdown
     ```
 
 7. To verify the IPv4 addresses for all interfaces:
