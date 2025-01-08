@@ -48,7 +48,7 @@
     Router(config)# hostname NES413
     ```
 
-2. Login banners: A login banner is a message that is displayed at login.
+2. **Login banners:** A login banner is a message that is displayed at login.
     ```c
     Router(config)# banner motd #your statment#
     ```
@@ -60,24 +60,24 @@ were hostnames.
     // or use Ctrl+Shift+6
     ```
 
-4. Configuring router passwords: Passwords restrict access to routers. The following two commands can be used to establish authentication before accessing **privileged EXEC mode**:
+4. **Configuring router passwords:** Passwords restrict access to routers and establish authentication before accessing **privileged EXEC mode**:
 
-    - Enable Password: set a password to the privileged mode. The password is displayed as clear text in the router’s configuration file.
+    - **Enable Password:** set a password to the privileged mode. The password is displayed as clear text in the router’s configuration file.
         ```c
         Router(config)# enable password yourpassword
         ```
 
-    - Enable Secret: encrypted secret password to privileged mode. The password is displayed as encrypted text in the router’s configuration file.
+    - **Enable Secret:** encrypted secret password to privileged mode. The password is displayed as encrypted text in the router’s configuration file.
         ```c
         Router(config)# enable secret yourpassword
         ```
 
-5. The service password-encryption global configuration command to prevent passwords from displaying as plain text in the configuration file.
+5. The **service password-encryption** global configuration command to prevent passwords from displaying as plain text in the configuration file.
     ```c
     Router(config)# service password-encryption
     ````
 
-6. Configuring Ethernet interfaces:
+6. Configuring interfaces:
     ```c
     Router(config)# interface type-and-number
     Router(config-if)# description descriptive-text
@@ -90,7 +90,7 @@ were hostnames.
     Router# show ip interface brief
     ```
 
-8. To show the routing table of the router use the following command in the privileged EXEC mode:
+8. To show the **routing table** of the router use the following command in the privileged EXEC mode:
     ```c
     Router# show ip route
     ```
