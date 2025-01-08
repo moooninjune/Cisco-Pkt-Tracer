@@ -251,8 +251,10 @@ ACL is a set of IOS commands applied to a router’s interface and used to **fil
     A.B.C.D  Address to match
     any      Any source host
     host     A single host address
+    ```
 
-    // After an ACL is created it must be linked to a router’s interface
+3) After an ACL is created it must be **linked to a router’s interface**:
+    ```c
     Router(config)# interface interface-type-and-number
 
     Router(config-if)# ip access-group {access-list-number | accesslist-name} {in | out}
