@@ -133,6 +133,7 @@ were hostnames.
     - Network-address: Destination network address of the remote network.
     - Subnet-mask: Subnet Mask of the remote network.
     - Next-hop-address: Next-hop router’s IP address.
+    - Exit-interface (interface-id): Outgoing interface that's used to forward packets to the destination network.
 
 2) To configure a **default static route** with a *next-hop IP address* or *exit interface* specified:
     ```c
