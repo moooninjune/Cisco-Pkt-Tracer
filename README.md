@@ -346,7 +346,16 @@ ACL is a set of IOS commands applied to a router’s interface and used to **fil
     R1(config-subif)# encapsulation dot1Q vlan-id
     R1(config-subif)# ip address ip-address subnet-mask
     ```
-
+    
+- Notes:
+    - If we used a routing protocol like OSPF, sub-interfaces (VLANs) must be passive-interfaces.
+    - Don't forget to change the state of the parent interface to `UP`:
+        ```c
+        R1(config-if)# interface g0/1
+        R1(config-if)# no shutdown
+        // not for g0/1.10 or g0/1.20 or etc...
+        ```
+        
 - To manage the switch (and the VLANs) remotely:
 
     ```c
@@ -366,15 +375,6 @@ ACL is a set of IOS commands applied to a router’s interface and used to **fil
     // Using any end-device, on the command prompt
     telnet switch-ip-address
     ```
-
-- **Notes:**
-    - If we used a routing protocol like OSPF, sub-interfaces (VLANs) must be passive-interfaces.
-    - Don't forget to change the state of the parent interface to `UP`:
-        ```c
-        R1(config-if)# interface g0/1
-        R1(config-if)# no shutdown
-        // not for g0/1.10 or g0/1.20 or etc...
-        ```
 ---
 # NAT Configuration
 1) **Static NAT:**
