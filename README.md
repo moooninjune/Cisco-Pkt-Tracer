@@ -350,6 +350,7 @@ ACL is a set of IOS commands applied to a router’s interface and used to **fil
 - Notes:
     - If we used a routing protocol like OSPF, sub-interfaces (VLANs) must be passive-interfaces.
     - Don't forget to change the state of the parent interface to `UP`:
+    - 
         ```c
         R1(config-if)# interface g0/1
         R1(config-if)# no shutdown
