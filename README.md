@@ -15,6 +15,8 @@
 
 ### Configuring router's interfaces in different ways
 - GUI of the router
+
+    ![alt text](image.png)
 - CLI directly on the router
 - Through an end-device using **Console Cable** connected to the router
 
