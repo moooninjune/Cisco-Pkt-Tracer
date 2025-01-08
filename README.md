@@ -185,10 +185,10 @@ Router(config-router)# passive-interface interface-type-and-number
 
 - Configure the DHCP pool:
     ```c
-    Router(config)# ip dhcp pool POOLNAME
-    Router(dhcp-config)# network NETWORKID MASK
-    Router(dhcp-config)# dns-server IP Address
-    Router(dhcp-config)# default-router IP Address
+    Router(config)# ip dhcp pool pool-name
+    Router(dhcp-config)# network network-address subnet-mask
+    Router(dhcp-config)# dns-server IP-address
+    Router(dhcp-config)# default-router IP-address
     ```
 
 - To display a list of all IPv4 address to MAC address bindings that
